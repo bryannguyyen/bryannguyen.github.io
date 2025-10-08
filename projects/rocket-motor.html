@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Solid Rocket Motor — Bryan Nguyen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e0f12;
+      --card: #15171c;
+      --muted: #9aa3b2;
+      --text: #e7eaf0;
+      --accent: #3ea6ff;
+      --border: #23262e;
+      --radius: 18px;
+      --maxw: 980px;
+    }
+    html,body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
+    header { border-bottom: 1px solid var(--border); padding: 14px 0; }
+    h1 { margin: 0.2rem 0 0.6rem; font-size: 2rem; }
+    .meta { color: var(--muted); margin-bottom: 12px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin: 12px 0;
+    }
+    img { max-width: 100%; border-radius: 12px; display: block; }
+    .grid { display: grid; gap: 14px; }
+    @media (min-width: 900px) {
+      .grid.two { grid-template-columns: 1fr 1fr; }
+    }
+    ul { margin: 0 0 0 18px; }
+    footer {
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      padding: 18px 0;
+      margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a href="../index.html">← Back to Home</a>
+  </header>
+
+  <main class="wrap">
+    <h1>Solid Rocket Motor (TW-39)</h1>
+    <div class="meta">Jan 2025 – Jun 2025 • Propulsion Lead</div>
+
+    <div class="card">
+      <p><strong>Overview:</strong> Led a 5-person propulsion subteam in the design, machining, testing, and integration of a custom solid rocket motor (TW-39). The project achieved a peak thrust of ~2000 N, total impulse of 5776 Ns, and successfully launched a dual-deployment rocket to over 7000 ft, placing fourth in the 2025 FAR-UNL competition.</p>
+    </div>
+
+    <div class="grid two">
+      <div class="card">
+        <h3 style="margin-top:0">Propellant Development</h3>
+        <ul>
+          <li>Formulated a sugar-based composite propellant with aluminum powder to improve combustion efficiency.</li>
+          <li>Performed small-scale static burns to measure burn rate and pressure characteristics.</li>
+          <li>Optimized mixture ratios for maximum specific impulse while maintaining safe chamber pressures.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <img src="../images/rocket-motor-grain.jpg" alt="Propellant grain design" />
+      </div>
+    </div>
+
+    <div class="grid two">
+      <div class="card">
+        <h3 style="margin-top:0">Design & Manufacturing</h3>
+        <ul>
+          <li>Designed the motor casing, nozzle, and closure systems in Onshape with manufacturability and structural integrity in mind.</li>
+          <li>Machined steel and aluminum components using CNC and lathe processes.</li>
+          <li>Integrated o-ring sealing and pressure relief features for improved reliability and safety.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <img src="../images/rocket-cad.jpg" alt="Rocket motor CAD design" />
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">Testing & Results</h3>
+      <ul>
+        <li>Conducted single-grain static fire tests to characterize burn performance and validate motor predictions.</li>
+        <li>Full-scale static test achieved ~2000 N peak thrust and a total impulse of 5776 Ns.</li>
+        <li>Validated MATLAB simulation models with empirical test data to refine performance predictions.</li>
+      </ul>
+      <div style="position:relative;padding-top:56.25%">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Static test video"
+          style="position:absolute;inset:0;width:100%;height:100%;border:0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">Challenges & Lessons Learned</h3>
+      <ul>
+        <li>Early nozzle erosion issues resolved by adjusting nozzle throat material and geometry.</li>
+        <li>Inconsistent grain casting resolved by developing a more controlled mixing and curing process.</li>
+        <li>Improved test data acquisition workflow for higher-fidelity thrust curve measurement.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">Next Steps</h3>
+      <ul>
+        <li>Integrate new propellant formulation and nozzle redesign into next-generation motor for higher impulse class.</li>
+        <li>Automate data collection and analysis pipeline for future static fire tests.</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer class="wrap">
+    © <span id="y"></span> Bryan Nguyen
+  </footer>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear()
+  </script>
+</body>
+</html>
