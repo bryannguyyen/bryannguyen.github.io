@@ -7,6 +7,62 @@
   <meta name="description" content="Projects by Bryan Nguyen: robotics, rocketry, and mechanical design." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    /* ==== OVERRIDE: Large banner project cards ==== */
+
+/* Projects grid: big cards in 2 columns (1 on mobile) */
+.grid.projects{
+  display:grid;
+  gap:20px;
+  grid-template-columns:repeat(2,1fr);
+}
+@media (max-width:900px){ .grid.projects{ grid-template-columns:1fr } }
+
+/* Make the entire card clickable */
+.project-card{
+  display:block;                 /* anchor behaves like a block */
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+  transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  text-decoration:none;          /* no underline on the link */
+  color:inherit;                  /* keep text color */
+}
+.project-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 28px rgba(0,0,0,0.10);
+  border-color:#d9dde6;
+}
+
+/* Banner image on top of the card */
+.project-card .thumb{
+  width:100%;
+  aspect-ratio:16/9;             /* cinematic banner */
+  overflow:hidden;
+  background:#eceff5;
+}
+.project-card .thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;               /* crop nicely to fill */
+  display:block;
+}
+
+/* Text area under the banner */
+.project-card .body{
+  padding:14px 16px 16px;
+}
+.project-card h3{
+  margin:0 0 6px;
+  font-size:1.15rem;
+  line-height:1.25;
+}
+.project-card p{
+  margin:0;
+  color:var(--muted);
+}
+
     :root{
       --bg:#ffffff;
       --text:#0f1720;
