@@ -1,12 +1,236 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bryan Nguyen — Portfolio</title>
-  </head>
-  <body>
-    <h1>Hi, I’m Bryan</h1>
-    <p>Mechanical Engineering student at UCI. This site is under construction.</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bryan Nguyen — Mechanical Engineering Portfolio</title>
+  <meta name="description" content="Portfolio of Bryan Nguyen, Mechanical Engineering student at UCI." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0e0f12;         /* page background */
+      --card:#15171c;       /* card background */
+      --muted:#9aa3b2;      /* secondary text */
+      --text:#e7eaf0;       /* primary text */
+      --accent:#3ea6ff;     /* link / accent */
+      --accent-2:#7bd389;   /* secondary accent (buttons hover) */
+      --border: #23262e;
+      --maxw: 1080px;
+      --radius:18px;
+      --shadow: 0 6px 24px rgba(0,0,0,0.2);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%;display:block;border-radius:12px}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:24px}
+    /* Header */
+    header{position:sticky;top:0;background:rgba(14,15,18,0.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+    .brand{font-weight:700;letter-spacing:.4px}
+    .nav a{color:var(--text)}
+    .nav-links{display:flex;gap:18px;flex-wrap:wrap}
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;padding:32px 0}
+    .tag{display:inline-block;background:#1b1e25;border:1px solid var(--border);color:var(--muted);padding:6px 10px;border-radius:999px;font-size:.85rem}
+    h1{font-size:2.2rem;line-height:1.2;margin:14px 0 10px}
+    .lead{color:var(--muted);margin-bottom:18px}
+    .btns{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:#1b1e25;color:var(--text);text-decoration:none}
+    .btn.primary{background:var(--accent);color:#0b1118;border-color:transparent}
+    .btn.primary:hover{filter:brightness(1.08)}
+    .btn.ghost:hover{border-color:#2c313a}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+    /* Sections */
+    section{padding:18px 0}
+    section h2{font-size:1.4rem;margin:0 0 12px}
+    .grid{display:grid;gap:16px}
+    /* Project cards */
+    .projects{grid-template-columns:repeat(3,1fr)}
+    @media (max-width:1000px){.projects{grid-template-columns:repeat(2,1fr)} .hero{grid-template-columns:1fr}}
+    @media (max-width:640px){.projects{grid-template-columns:1fr}}
+    .project{overflow:hidden}
+    .project .body{padding:14px}
+    .project h3{margin:0 0 6px;font-size:1.05rem}
+    .meta{font-size:.9rem;color:var(--muted);margin-bottom:6px}
+    .bullets{margin:10px 0 0 18px;padding:0}
+    .bullets li{margin:4px 0}
+    /* Two-column lists */
+    .twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media (max-width:800px){.twocol{grid-template-columns:1fr}}
+    /* Footer */
+    footer{border-top:1px solid var(--border);margin-top:24px;padding:18px 0;color:var(--muted);font-size:.95rem}
+    .kpi{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.95rem}
+    .kpi span{display:inline-flex;align-items:center;gap:6px;background:#1b1e25;border:1px solid var(--border);padding:6px 10px;border-radius:999px}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">Bryan Nguyen</div>
+    <nav class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a href="Bryan_Nguyen_Resume.pdf" class="btn" title="Download resume">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <span class="tag">Mechanical Engineering @ UCI</span>
+      <h1>Hands-on projects in robotics, propulsion, and simulation</h1>
+      <p class="lead">
+        I design, build, and test mechanical and mechatronic systems — from a 5-DOF teleoperated robotic arm to a static-fired solid rocket motor.
+        I like clear specs, clean CAD, and measurable results.
+      </p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn ghost" href="mailto:bryann3528@gmail.com">Email</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/bryannguyen18">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/bryannguyen">GitHub</a>
+      </div>
+      <div class="kpi" style="margin-top:12px">
+        <span>SolidWorks • Onshape • MATLAB/Simulink</span>
+        <span>Arduino/C++</span>
+        <span>3D Printing (ABS, PA6-GF)</span>
+      </div>
+    </div>
+    <div class="card" style="padding:14px">
+      <!-- Optional hero image; replace src with your photo or a CAD render -->
+      <img src="images/hero-robotic-arm.jpg" alt="Robotic arm render / project collage">
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="grid projects">
+      <!-- Project 1 -->
+      <article class="card project">
+        <img src="images/robotic-arm.jpg" alt="5-DOF robotic arm" />
+        <div class="body">
+          <h3>5-DOF Robotic Arm</h3>
+          <div class="meta">Jul 2025 – Present</div>
+          <ul class="bullets">
+            <li>Teleoperated arm with NEMA-17 base and MG995 joints; 250 g payload.</li>
+            <li>Full assembly in SolidWorks; printed ABS/PA6-GF parts with heat-set inserts.</li>
+            <li>Arduino Nano firmware reads 4-pot master; LM2596 power + custom rails.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="card project">
+        <img src="images/rocket-motor.jpg" alt="Static fire of solid rocket motor" />
+        <div class="body">
+          <h3>Solid Rocket Motor (TW-39)</h3>
+          <div class="meta">Jan 2025 – Jun 2025</div>
+          <ul class="bullets">
+            <li>Led 5-person team; static fire achieved ~2000 N peak, 5776 N·s impulse.</li>
+            <li>Onshape design for manufacturability and structural integrity.</li>
+            <li>Single-grain tests → burn rate model → MATLAB performance prediction.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="card project">
+        <img src="images/tiny-house.jpg" alt="Tiny house thermal simulation charts" />
+        <div class="body">
+          <h3>Tiny House Energy Analysis</h3>
+          <div class="meta">May 2024 – Jun 2024</div>
+          <ul class="bullets">
+            <li>MATLAB/Simulink model comparing insulation and heating costs.</li>
+            <li>48-hour Vernier temperature logging; indoor vs outdoor retention.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE + EDUCATION -->
+  <section id="experience" class="twocol">
+    <div>
+      <h2>Experience</h2>
+      <div class="card" style="padding:14px">
+        <h3 style="margin:0 0 6px">Solid Rocket Fuel Research</h3>
+        <div class="meta">Cal Poly Pomona ENGAGE • Sept 2024 – May 2025</div>
+        <ul class="bullets">
+          <li>Tested sugar-based propellants with supplemental oxidizers and metal additives.</li>
+          <li>Planned and executed static tests; analyzed burn rate, efficiency, and thrust.</li>
+        </ul>
+      </div>
+      <div class="card" style="padding:14px;margin-top:12px">
+        <h3 style="margin:0 0 6px">Embedded Tutor — Engineering Statics</h3>
+        <div class="meta">Mt. San Antonio College • Aug 2024 – Feb 2025</div>
+        <ul class="bullets">
+          <li>Led group sessions on equilibrium, trusses, frames, and friction.</li>
+          <li>In-class support and problem walkthroughs across learning styles.</li>
+        </ul>
+      </div>
+      <div class="card" style="padding:14px;margin-top:12px">
+        <h3 style="margin:0 0 6px">Workshop Lead — Rocket Workshop</h3>
+        <div class="meta">Mt. SAC • Sept 2024 – Jan 2025</div>
+        <ul class="bullets">
+          <li>Co-led 10-week program for 30 students: CAD, simulation, fabrication.</li>
+          <li>Owned logistics, budget, and mentoring through build challenges.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <h2>Education</h2>
+      <div class="card" style="padding:14px">
+        <h3 style="margin:0 0 6px">University of California, Irvine</h3>
+        <div class="meta">B.S. Mechanical Engineering • Aug 2022 – Present • GPA 4.0</div>
+        <ul class="bullets">
+          <li>Clubs: Rocket team; workshop lead; tutoring.</li>
+          <li>Coursework: Dynamics, Mechanics of Materials, Thermo, Fluids, Circuits.</li>
+        </ul>
+      </div>
+
+      <h2 id="skills" style="margin-top:18px">Skills</h2>
+      <div class="card" style="padding:14px">
+        <ul class="bullets" style="margin:0">
+          <li><strong>CAD:</strong> SolidWorks, Onshape, AutoCAD</li>
+          <li><strong>Simulation:</strong> MATLAB/Simulink</li>
+          <li><strong>Electronics:</strong> Arduino, basic PCB (KiCad), buck regulation</li>
+          <li><strong>Manufacturing:</strong> 3D printing (ABS, PETG, PA6-GF), hand tools</li>
+          <li><strong>Programming:</strong> C++, MATLAB</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card" style="padding:14px">
+      <p style="margin:8px 0">Open to Summer internship roles in ME/Robotics/Testing.</p>
+      <p style="margin:8px 0">
+        <a href="mailto:bryann3528@gmail.com">bryann3528@gmail.com</a> •
+        <a href="https://www.linkedin.com/in/bryannguyen18">LinkedIn</a> •
+        <a href="https://github.com/bryannguyen">GitHub</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    © <span id="y"></span> Bryan Nguyen
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
 </html>
