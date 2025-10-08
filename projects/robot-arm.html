@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>5-DOF Robotic Arm — Bryan Nguyen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* reuse the same look as your homepage */
+    :root{--bg:#0e0f12;--card:#15171c;--muted:#9aa3b2;--text:#e7eaf0;--accent:#3ea6ff;--border:#23262e;--radius:18px;--maxw:980px}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:24px}
+    header{border-bottom:1px solid var(--border);padding:14px 0}
+    h1{margin:.2rem 0 0.6rem;font-size:2rem}
+    .meta{color:var(--muted);margin-bottom:12px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin:12px 0}
+    img{max-width:100%;border-radius:12px;display:block}
+    .grid{display:grid;gap:14px}
+    @media(min-width:900px){.grid.two{grid-template-columns:1fr 1fr}}
+    ul{margin:0 0 0 18px}
+    footer{border-top:1px solid var(--border);color:var(--muted);padding:18px 0;margin-top:24px}
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a href="../index.html">← Back to Home</a>
+  </header>
+
+  <main class="wrap">
+    <h1>5-DOF Robotic Arm</h1>
+    <div class="meta">Role: Mechanical + Firmware • Tools: SolidWorks, Arduino/C++ • Jul 2025 – Present</div>
+
+    <div class="card">
+      <p><strong>Overview:</strong> Teleoperated 5-DOF arm with NEMA-17 base and servo joints. Goal was smooth real-time control from a master potentiometer rig and a clean, serviceable mechanical design.</p>
+    </div>
+
+    <div class="grid two">
+      <div class="card">
+        <h3 style="margin-top:0">Design & CAD</h3>
+        <ul>
+          <li>Full assembly in SolidWorks; 3D printed ABS/PA6-GF parts with brass heat-set inserts.</li>
+          <li>Gear train sizing for torque at the wrist and repeatability at the elbow.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <img src="../images/robotic-arm.jpg" alt="Robotic arm CAD render">
+      </div>
+    </div>
+
+    <div class="grid two">
+      <div class="card">
+        <h3 style="margin-top:0">Electronics & Control</h3>
+        <ul>
+          <li>LM2596 buck regulation with hand-wired rails; Nano reads 4 pots on master controller.</li>
+          <li>Mapped inputs to servo angles and stepper steps for base rotation.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <!-- Optional YouTube embed: replace VIDEO_ID -->
+        <div style="position:relative;padding-top:56.25%">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Demo"
+            style="position:absolute;inset:0;width:100%;height:100%;border:0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">Testing & Results</h3>
+      <ul>
+        <li>Payload: 250 g at full extension; base stepper microstepping reduced jitter.</li>
+        <li>Joint repeatability within ~2–3° measured across 20 cycles.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">Challenges & Iterations</h3>
+      <ul>
+        <li>Servo backlash caused oscillations at the wrist. Added stiffer horn and tuned deadband.</li>
+        <li>Print warping on forearm bracket. Switched to 0.8 mm walls and higher bed temp.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">Next Steps</h3>
+      <ul>
+        <li>Custom PCB and inverse kinematics playback.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="wrap">
+    © <span id="y"></span> Bryan Nguyen
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
