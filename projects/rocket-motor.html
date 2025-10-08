@@ -69,10 +69,24 @@
           <li>Optimized mixture ratios for maximum specific impulse while maintaining safe chamber pressures.</li>
         </ul>
       </div>
-      <div class="card">
-        <!-- if this image is also in /projects/images, use images/... -->
-        <img src="images/rocket-motor-grain.jpg" alt="Propellant grain design" />
-      </div>
+      <!-- Right column: Propellant Development photo -->
+<div class="card" style="text-align:center;">
+  <img
+    src="images/sugar-grains.png"
+    alt="Propellant grain development samples (KNSB test casts)"
+    style="width:100%; max-width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.1); cursor:zoom-in;"
+    onclick="openPopup('popup-grains')"
+  >
+  <p style="font-size:14px; margin-top:8px; color:#555;">
+    Propellant grain development (KNSB) test casts
+  </p>
+</div>
+
+<!-- Popup for the grains image (place near the end of the file, just before </body>) -->
+<div id="popup-grains" class="popup-img" onclick="closePopup('popup-grains')">
+  <img src="images/sugar-grains.png" alt="Full-size view: propellant grain development">
+</div>
+
     </div>
 
     <div class="grid two">
