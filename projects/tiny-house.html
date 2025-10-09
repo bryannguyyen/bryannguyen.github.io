@@ -6,36 +6,47 @@
   <title>Tiny House Energy Model — Bryan Nguyen</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#fff; --text:#0f1720; --muted:#52607a; --border:#e6e9ef;
-      --card:#f7f8fb; --radius:18px; --maxw:980px; --accent:#0f6fff;
-    }
-    *{box-sizing:border-box}
+    :root{--bg:#fff;--text:#0f1720;--muted:#52607a;--border:#e6e9ef;--card:#f7f8fb;--radius:18px;--maxw:980px}
     body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
-    a{color:var(--accent);text-decoration:none}
     .wrap{max-width:var(--maxw);margin:0 auto;padding:22px}
-    .hero{border:1px solid var(--border);border-radius:16px;overflow:hidden;margin:8px 0 18px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+    .hero{border:1px solid var(--border);border-radius:14px;overflow:hidden;margin:10px 0 18px}
     .hero img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
-    .btn{display:inline-block;padding:10px 14px;border:1px solid var(--border);border-radius:12px;background:#fff}
-    .btn.primary{background:var(--accent);color:#fff;border-color:transparent}
-    .actions{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 16px}
-    .viewer{border:1px solid var(--border);border-radius:16px;overflow:hidden}
-    .viewer iframe{width:100%;height:80vh;border:0}
-    .muted{color:var(--muted)}
+    h1{margin:0 0 4px}
+    .muted{color:var(--muted);margin:0 0 16px}
+    .pdfwrap{border:1px solid var(--border);border-radius:14px;overflow:hidden}
+    .pdfwrap object{width:100%;height:900px;display:block}
+    @media (max-width: 800px){ .pdfwrap object{height:70vh} }
+    a{color:#0f6fff;text-decoration:none}
   </style>
 </head>
 <body>
   <main class="wrap">
-    <h1 style="margin:0 0 6px">Tiny House Energy Model</h1>
-    <p class="muted" style="margin:0 0 14px">MATLAB/Simulink model comparing insulation options and energy use.</p>
+    <h1>Tiny House Energy Model</h1>
+    <p class="muted">MATLAB/Simulink model comparing insulation options and energy use.</p>
 
     <!-- Banner -->
     <div class="hero">
+      <!-- NOTE: from /projects/tiny-house.html the correct relative path is "images/..." -->
       <img src="images/tiny-house-banner.png" alt="Tiny House simulation plots">
     </div>
 
-    <!-- Report buttons -->
-    <div id="report" class="actions">
-      <a class="btn primary" href="images/tiny-house
+    <!-- Embedded PDF with graceful fallback -->
+    <div class="card pdfwrap">
+      <object data="images/tiny-house-report.pdf#view=FitH" type="application/pdf">
+        <div style="padding:16px">
+          <p>Can’t display the PDF in this browser.</p>
+          <p>
+            <a href="images/tiny-house-report.pdf" download>Download the report (PDF)</a>
+            &nbsp;|&nbsp;
+            <a href="images/tiny-house-report.pdf" target="_blank" rel="noopener">Open in a new tab</a>
+          </p>
+        </div>
+      </object>
+    </div>
+
+    <p><a href="../index.html#projects">← Back to projects</a></p>
+  </main>
+</body>
+</html>
 
