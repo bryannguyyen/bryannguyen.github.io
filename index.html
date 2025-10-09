@@ -1,4 +1,4 @@
-<!doctype html>
+!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -7,67 +7,62 @@
   <meta name="description" content="Projects by Bryan Nguyen: robotics, rocketry, and mechanical design." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* === Project card grid (two big banner cards) === */
-    .grid.projects{
-      display:grid;
-      gap:20px;
-      grid-template-columns:repeat(2,1fr);
-    }
-    @media (max-width:900px){ .grid.projects{ grid-template-columns:1fr } }
+    /* ==== OVERRIDE: Large banner project cards ==== */
 
-    /* Make the big cards fully clickable and polished */
-    .grid.projects .card{
-      display:block;
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      overflow:hidden;
-      box-shadow:0 6px 20px rgba(0,0,0,.06);
-      transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
-      text-decoration:none;
-      color:inherit;
-    }
-    .grid.projects .card:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 28px rgba(0,0,0,.10);
-      border-color:#d9dde6;
-    }
+/* Projects grid: big cards in 2 columns (1 on mobile) */
+.grid.projects{
+  display:grid;
+  gap:20px;
+  grid-template-columns:repeat(2,1fr);
+}
+@media (max-width:900px){ .grid.projects{ grid-template-columns:1fr } }
 
-    /* Standardized banner size for those two cards */
-    .project-banner{
-      width:100%;
-      aspect-ratio:16/9;    /* consistent visual footprint */
-      object-fit:cover;     /* crop nicely */
-      display:block;
-    }
-    .card-body{ padding:14px 16px 16px; }
-    .card-body h3{ margin:0 0 6px; font-size:1.15rem; line-height:1.25; }
-    .card-body p{ margin:0; color:var(--muted); }
+/* Make the entire card clickable */
+.project-card{
+  display:block;                 /* anchor behaves like a block */
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+  transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  text-decoration:none;          /* no underline on the link */
+  color:inherit;                  /* keep text color */
+}
+.project-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 28px rgba(0,0,0,0.10);
+  border-color:#d9dde6;
+}
 
-    /* (Optional) smaller “thumbnail-style” cards used later */
-    .project-card{
-      display:block;
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      overflow:hidden;
-      box-shadow:0 6px 20px rgba(0,0,0,0.06);
-      transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
-      text-decoration:none;
-      color:inherit;
-    }
-    .project-card:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 28px rgba(0,0,0,0.10);
-      border-color:#d9dde6;
-    }
-    .project-card .thumb{ width:100%; aspect-ratio:16/9; overflow:hidden; background:#eceff5; }
-    .project-card .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
-    .project-card .body{ padding:14px 16px 16px; }
-    .project-card h3{ margin:0 0 6px; font-size:1.05rem; }
-    .project-card p{ margin:0; color:var(--muted); }
+/* Banner image on top of the card */
+.project-card .thumb{
+  width:100%;
+  aspect-ratio:16/9;             /* cinematic banner */
+  overflow:hidden;
+  background:#eceff5;
+}
+.project-card .thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;               /* crop nicely to fill */
+  display:block;
+}
 
-    /* ===== Site base styles ===== */
+/* Text area under the banner */
+.project-card .body{
+  padding:14px 16px 16px;
+}
+.project-card h3{
+  margin:0 0 6px;
+  font-size:1.15rem;
+  line-height:1.25;
+}
+.project-card p{
+  margin:0;
+  color:var(--muted);
+}
+
     :root{
       --bg:#ffffff;
       --text:#0f1720;
@@ -100,6 +95,13 @@
     section h2{font-size:1.35rem;margin:0 0 10px}
     .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
     .grid{display:grid;gap:16px}
+    .projects{grid-template-columns:repeat(3,1fr)}
+    @media (max-width:1000px){.projects{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.projects{grid-template-columns:1fr}}
+    .project-card .body{margin-top:10px}
+    .project-card h3{margin:0 0 6px;font-size:1.05rem}
+    .project-card p{margin:0 0 8px;color:var(--muted)}
+    .project-card .view{display:inline-block;margin-top:6px}
     footer{border-top:1px solid var(--border);margin-top:22px;padding:16px 0;color:var(--muted);font-size:.95rem}
   </style>
 </head>
@@ -133,6 +135,7 @@
       </div>
     </div>
     <div class="card">
+      <!-- Replace with your own banner image -->
       <img src="images/banner-working.jpg" alt="Bryan working on a project in the lab">
     </div>
   </section>
@@ -150,62 +153,80 @@
   <!-- PROJECTS -->
   <section id="projects">
     <h2>Projects</h2>
-
     <div class="grid projects">
 
-      <!-- 5-DOF Robotic Arm card -->
-      <a class="card" href="/robot-arm.html">
-        <img
-          src="projects/images/arm-banner.jpg"
-          alt="5-DOF robotic arm with printed gripper"
-          class="project-banner"
-          loading="lazy"
-        >
-        <div class="card-body">
-          <h3>5-DOF Robotic Arm</h3>
-          <p>Teleoperated arm with custom mechanics and embedded control.</p>
-        </div>
-      </a>
-
-      <!-- Solid Rocket Motor card -->
-      <a class="card" href="/projects/rocket-motor.html">
-        <img
-          src="projects/images/rocket-banner.jpg"
-          alt="Static-fire plume from solid rocket motor test"
-          class="project-banner"
-          loading="lazy"
-        >
-        <div class="card-body">
-          <h3>Solid Rocket Motor (TW-39)</h3>
-          <p>Sugar-based motor with aluminum powder; ~2000 N peak thrust, 5776 N·s total impulse.</p>
-        </div>
-      </a>
-
+  <!-- Robotic Arm -->
+  <a class="project-card" href="projects/robot-arm.html">
+    <div class="thumb">
+      <img src="images/robotic-arm.jpg" alt="5-DOF Robotic Arm banner">
     </div>
+    <div class="body">
+      <h3>5-DOF Robotic Arm</h3>
+      <p>Teleoperated arm with custom mechanics and embedded control.</p>
+    </div>
+  </a>
+  <!-- Solid Rocket Motor -->
+  <!-- Solid Rocket Motor card -->
+<a class="card" href="projects/rocket-motor.html">
+  <img
+    src="projects/images/rocket-banner.jpg"
+    alt="Static-fire plume from solid rocket motor test"
+    class="project-banner"
+    loading="lazy"
+  >
+  <div class="card-body">
+    <h3>Solid Rocket Motor (TW-39)</h3>
+    <p>Sugar-based motor with aluminum powder; ~2000 N peak thrust, 5776 N·s total impulse.</p>
+  </div>
+</a>
 
-    <!-- Example of smaller thumbnail-style cards below (optional) -->
-    <div class="grid" style="margin-top:16px;">
-      <a class="project-card" href="projects/cycloidal.html">
-        <div class="thumb">
-          <img src="images/cycloidal.jpg" alt="Cycloidal Drive Gearbox">
-        </div>
+
+  <!-- Cycloidal Drive (WIP) -->
+  <a class="project-card" href="projects/cycloidal.html">
+    <div class="thumb">
+      <img src="images/cycloidal.jpg" alt="Cycloidal Drive Gearbox">
+    </div>
+    <div class="body">
+      <h3>Cycloidal Drive Gearbox (WIP)</h3>
+      <p>Compact high-ratio gearbox focused on backlash and print-friendly tolerances.</p>
+    </div>
+  </a>
+
+  <!-- Tiny House -->
+  <a class="project-card" href="projects/tiny-house.html">
+    <div class="thumb">
+      <img src="images/tiny-house.jpg" alt="Tiny House Energy Model">
+    </div>
+    <div class="body">
+      <h3>Tiny House Energy Model</h3>
+      <p>MATLAB/Simulink model comparing insulation options and energy use.</p>
+    </div>
+  </a>
+
+</div>
+
+      </article>
+
+      <!-- Project 3 -->
+      <article class="card project-card">
+        <img src="images/cycloidal.jpg" alt="Cycloidal Drive Gearbox">
         <div class="body">
           <h3>Cycloidal Drive Gearbox (WIP)</h3>
-          <p>Compact high-ratio gearbox focused on backlash and print-friendly tolerances.</p>
+          <p>Compact high-ratio gearbox; focused on backlash reduction and print-friendly tolerances.</p>
+          <a class="view" href="projects/cycloidal.html">View project →</a>
         </div>
-      </a>
+      </article>
 
-      <a class="project-card" href="projects/tiny-house.html">
-        <div class="thumb">
-          <img src="images/tiny-house.jpg" alt="Tiny House Energy Model">
-        </div>
+      <!-- Project 4 -->
+      <article class="card project-card">
+        <img src="images/tiny-house.jpg" alt="Tiny House Energy Model">
         <div class="body">
           <h3>Tiny House Energy Model</h3>
           <p>MATLAB/Simulink model comparing insulation options and energy use.</p>
+          <a class="view" href="projects/tiny-house.html">View project →</a>
         </div>
-      </a>
+      </article>
     </div>
-
   </section>
 
   <!-- CONTACT -->
