@@ -106,15 +106,16 @@
       <style>
     /* …all your existing CSS… */
 
-    /* === Uniform project banner size (16:9 like the rocket card) === */
-    .project-banner{
-      width:100%;
-      aspect-ratio:16 / 9;   /* makes height consistent */
-      object-fit:cover;       /* crops nicely to fill */
-      object-position:center;
-      display:block;
-      border-radius:12px;     /* matches your card look */
-    }
+ /* Same banner size for all project cards */
+.project-banner{
+  width:100%;
+  aspect-ratio:16 / 9;     /* same shape as your rocket image */
+  object-fit:cover;        /* crop to fill, no distortion */
+  object-position:center;
+  display:block;
+  border-radius:12px;
+}
+
   </style>
 
 </head>
