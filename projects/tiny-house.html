@@ -10,8 +10,6 @@
     body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
     .wrap{max-width:var(--maxw);margin:0 auto;padding:22px}
     .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
-    .hero{border:1px solid var(--border);border-radius:14px;overflow:hidden;margin:10px 0 18px}
-    .hero img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
     h1{margin:0 0 4px}
     .muted{color:var(--muted);margin:0 0 16px}
     .pdfwrap{border:1px solid var(--border);border-radius:14px;overflow:hidden}
@@ -25,13 +23,7 @@
     <h1>Tiny House Energy Model</h1>
     <p class="muted">MATLAB/Simulink model comparing insulation options and energy use.</p>
 
-    <!-- Banner -->
-    <div class="hero">
-      <!-- NOTE: from /projects/tiny-house.html the correct relative path is "images/..." -->
-      <img src="images/tiny-house-banner.png" alt="Tiny House simulation plots">
-    </div>
-
-    <!-- Embedded PDF with graceful fallback -->
+    <!-- Embedded PDF (no hero banner) -->
     <div class="card pdfwrap">
       <object data="images/tiny-house-report.pdf#view=FitH" type="application/pdf">
         <div style="padding:16px">
