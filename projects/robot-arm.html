@@ -62,11 +62,18 @@
 
     <div class="grid two">
       <div class="card">
-        <h3 style="margin-top:0">Design & CAD</h3>
-        <ul>
-          <li>Full assembly in SolidWorks; 3D printed ABS/PA6-GF parts with brass heat-set inserts.</li>
-          <li>Gear train sizing for torque at the wrist and repeatability at the elbow.</li>
-        </ul>
+       <h3 style="margin-top:0">Design & CAD</h3>
+<p>
+  5-DOF articulated arm: a 360&deg; swiveling base plus shoulder, elbow, and wrist joints (each up to ~180&deg; travel). The gripper (end effector) is modular and can be swapped to suit different tasks.
+</p>
+<ul>
+  <li>Joints actuated by a hybrid scheme: stepper motor for base rotation; hobby servo actuation for shoulder, elbow, and wrist.</li>
+  <li>Most structural components are 3D-printed (PLA, ABS, and PA6-GF). PA6-GF and ABS are used at high-load interfaces and for gears; PLA is used for non-critical covers and brackets.</li>
+  <li>All fasteners standardized to M3 hardware for simplicity and serviceability.</li>
+  <li>Electronics are enclosed in the side compartment for clean routing and easy maintenance.</li>
+  <li>Full assembly modeled in SolidWorks; tolerances tuned for press-fit inserts and repeatable assembly.</li>
+</ul>
+
       </div>
       <!-- Right column: CAD render -->
 <div class="card">
@@ -82,11 +89,18 @@
 
     <div class="grid two">
       <div class="card">
-        <h3 style="margin-top:0">Electronics & Control</h3>
-        <ul>
-          <li>LM2596 buck regulation with hand-wired rails; Nano reads 4 pots on master controller.</li>
-          <li>Mapped inputs to servo angles and stepper steps for base rotation.</li>
-        </ul>
+        <h3 style="margin-top:0">Electronics &amp; Control</h3>
+<ul>
+  <li>Custom wiring harness and power rails, hand-wired and soldered on perfboard for robustness and field repair.</li>
+  <li>Power: 12&nbsp;V, 10&nbsp;A DC barrel-jack supply.</li>
+  <li>Two 8&nbsp;A buck converters step down voltage rails for the different loads (servos vs. stepper/logic).</li>
+  <li>Controller: Arduino Nano + stepper driver. The base stepper is micro-stepped for smooth rotation; servos are commanded with rate-limited setpoints.</li>
+  <li>Teleoperation via a “master arm” populated with potentiometers; real-time readings are mapped to joint angles on the puppet arm.</li>
+</ul>
+<p style="margin-top:8px">
+  <em>Signal conditioning:</em> to reduce jitter from the potentiometers, a small software deadband (~2–3&deg;) is applied around the neutral reading, preventing tiny fluctuations from commanding the servos.
+</p>
+
       </div>
       <div class="card">
         <!-- Optional YouTube embed: replace VIDEO_ID -->
@@ -98,26 +112,36 @@
     </div>
 
     <div class="card">
-      <h3 style="margin-top:0">Testing & Results</h3>
-      <ul>
-        <li>Payload: 250 g at full extension; base stepper microstepping reduced jitter.</li>
-        <li>Joint repeatability within ~2–3° measured across 20 cycles.</li>
-      </ul>
+     <h3 style="margin-top:0">Testing &amp; Results</h3>
+<ul>
+  <li>Reach: ~14&nbsp;in (fully extended).</li>
+  <li>Payload: up to ~250&nbsp;g at the end effector in nominal postures.</li>
+  <li>End effectors: quick-swap interface supports grippers or task-specific tools.</li>
+  <li>Teleoperation: master arm mapping verified for smooth, low-latency control of shoulder, elbow, and wrist.</li>
+</ul>
+
     </div>
 
     <div class="card">
-      <h3 style="margin-top:0">Challenges & Iterations</h3>
-      <ul>
-        <li>Servo backlash caused oscillations at the wrist. Added stiffer horn and tuned deadband.</li>
-        <li>Print warping on forearm bracket. Switched to 0.8 mm walls and higher bed temp.</li>
-      </ul>
+     <h3 style="margin-top:0">Challenges &amp; Iterations</h3>
+<ul>
+  <li><strong>Gear and horn failures:</strong> early PLA gears and servo horns stripped under load. Fixed by
+    (1) changing print orientation so shear does not align with the weakest layer lines and
+    (2) switching materials to ABS and PA6-GF for gears/structural parts.</li>
+  <li><strong>Power headroom:</strong> the initial 12&nbsp;V/4&nbsp;A supply sagged during multi-axis moves. Upgrading to a 12&nbsp;V/10&nbsp;A supply and routing thicker-gauge rails on the perfboard eliminated brownouts.</li>
+  <li><strong>Signal noise/jitter:</strong> raw potentiometer readings caused servo twitch. A software deadband (~2–3&deg;) around neutral and gentle rate limiting smoothed motion substantially.</li>
+</ul>
+
     </div>
 
     <div class="card">
       <h3 style="margin-top:0">Next Steps</h3>
-      <ul>
-        <li>Custom PCB and inverse kinematics playback.</li>
-      </ul>
+<ul>
+  <li>Inverse-kinematics &amp; playback: record master-arm motion and play it back on the puppet arm with IK-based joint planning.</li>
+  <li>Filtering &amp; shielding: add simple moving-average filtering or RC filters and twisted-pair/shielded runs for the potentiometer bundle.</li>
+  <li>Hardened drive components: evaluate machined or molded gears for long-term durability.</li>
+</ul>
+
     </div>
   </main>
 
