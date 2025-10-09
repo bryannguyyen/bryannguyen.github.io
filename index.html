@@ -150,6 +150,32 @@
 .hero-banner:hover img{
   transform:scale(1.02);
 }
+  /* --- Mobile header layout fixes --- */
+@media (max-width: 680px){
+  header .nav{
+    flex-wrap: wrap;             /* allow line wrap */
+    gap: 10px;
+    padding: 12px 0;
+  }
+  .brand{
+    white-space: nowrap;         /* keep "Bryan Nguyen" on one line */
+    font-size: 1rem;
+    line-height: 1.2;
+    flex: 1 0 100%;              /* force brand onto its own row */
+  }
+  .nav-links{
+    width: 100%;                 /* links occupy full width on next row */
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .nav-links a,
+  .nav .btn{
+    padding: 8px 12px;           /* smaller comfortable touch targets */
+    border-radius: 10px;
+  }
+}
+
 
 </style>
 
