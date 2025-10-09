@@ -1,8 +1,1 @@
-<div class="btn-row" style="display:flex; gap:10px; flex-wrap:wrap; margin:12px 0;">
-  <a class="btn primary" href="docs/Tiny-House-Report.pdf" target="_blank" rel="noopener">
-    View full report (PDF)
-  </a>
-  <a class="btn" href="docs/Tiny-House-Report.pdf" download>
-    Download PDF
-  </a>
-</div>
+
