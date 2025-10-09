@@ -103,7 +103,20 @@
     .project-card p{margin:0 0 8px;color:var(--muted)}
     .project-card .view{display:inline-block;margin-top:6px}
     footer{border-top:1px solid var(--border);margin-top:22px;padding:16px 0;color:var(--muted);font-size:.95rem}
+      <style>
+    /* …all your existing CSS… */
+
+    /* === Uniform project banner size (16:9 like the rocket card) === */
+    .project-banner{
+      width:100%;
+      aspect-ratio:16 / 9;   /* makes height consistent */
+      object-fit:cover;       /* crops nicely to fill */
+      object-position:center;
+      display:block;
+      border-radius:12px;     /* matches your card look */
+    }
   </style>
+
 </head>
 <body>
 
