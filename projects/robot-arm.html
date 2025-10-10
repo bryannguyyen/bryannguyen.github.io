@@ -54,7 +54,7 @@
 
   <main class="wrap">
     <h1>5-DOF Robotic Arm</h1>
-    <div class="meta">Role: Mechanical + Firmware • Tools: SolidWorks, Arduino/C++ • Jul 2025 – Present</div>
+    <div class="meta">Role: Jul 2025 – Present </div>
 
     <div class="card">
       <p><strong>Overview:</strong> Teleoperated 5-DOF arm with NEMA-17 base and servo joints. Goal was smooth real-time control from a master potentiometer rig and a clean, serviceable mechanical design.</p>
@@ -67,7 +67,7 @@
   5-DOF articulated arm: a 360&deg; swiveling base plus shoulder, elbow, and wrist joints (each up to ~180&deg; travel). The gripper (end effector) is modular and can be swapped to suit different tasks.
 </p>
 <ul>
-  <li>Joints actuated by a hybrid scheme: stepper motor for base rotation; hobby servo actuation for shoulder, elbow, and wrist.</li>
+  <li>Joints actuated by a hybrid scheme: stepper motor for base rotation; 15kg servo actuation for shoulder, elbow, and wrist.</li>
   <li>Most structural components are 3D-printed (PLA, ABS, and PA6-GF). PA6-GF and ABS are used at high-load interfaces and for gears; PLA is used for non-critical covers and brackets.</li>
   <li>All fasteners standardized to M3 hardware for simplicity and serviceability.</li>
   <li>Electronics are enclosed in the side compartment for clean routing and easy maintenance.</li>
@@ -139,6 +139,7 @@
 <ul>
   <li>Inverse-kinematics &amp; playback: record master-arm motion and play it back on the puppet arm with IK-based joint planning.</li>
   <li>Filtering &amp; shielding: add simple moving-average filtering or RC filters and twisted-pair/shielded runs for the potentiometer bundle.</li>
+  <li>Custom PCB design, replacing the perfboard, reducing the footprint and allowing easier servicability.</li>
   <li>Hardened drive components: evaluate machined or molded gears for long-term durability.</li>
 </ul>
 
