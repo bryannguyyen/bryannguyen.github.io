@@ -1,1 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Delta Robot Ball Balancer — Bryan Nguyen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reuse the same look as your robot-arm page */
+    :root {
+      --bg:#ffffff;
+      --card:#f8f9fb;
+      --muted:#6b7280;
+      --text:#0f172a;
+      --accent:#2563eb;
+      --border:#e2e8f0;
+      --radius:18px;
+      --maxw:980px;
+    }
+
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:24px}
+    header{border-bottom:1px solid var(--border);padding:14px 0}
+    h1{margin:.2rem 0 0.6rem;font-size:2rem}
+    .meta{color:var(--muted);margin-bottom:12px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin:12px 0}
+    img{max-width:100%;border-radius:12px;display:block}
+    .grid{display:grid;gap:14px}
+    @media(min-width:900px){.grid.two{grid-template-columns:1fr 1fr}}
+    ul{margin:0 0 0 18px}
+    footer{border-top:1px solid var(--border);color:var(--muted);padding:18px 0;margin-top:24px}
+
+    /* clean placeholder blocks (no broken images) */
+    .media-placeholder{
+      height:280px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:linear-gradient(135deg,#e6e9ef,#f3f5f9);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--muted);
+      text-align:center;
+      padding:14px;
+    }
+    @media(max-width:900px){ .media-placeholder{ height:220px; } }
+  </style>
+</head>
+
+<body>
+  <!-- Sticky nav bar (same as robot-arm page) -->
+  <header style="position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:50;">
+    <div style="max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 20px;">
+      <div style="font-weight:700;letter-spacing:.3px;font-size:1.1rem;">
+        Bryan Nguyen
+      </div>
+      <nav style="display:flex;gap:18px;align-items:center;font-size:0.95rem;">
+        <a href="../index.html#about" style="text-decoration:none;color:var(--text);">About</a>
+        <a href="../index.html#projects" style="text-decoration:none;color:var(--text);">Projects</a>
+        <a href="../index.html#contact" style="text-decoration:none;color:var(--text);">Contact</a>
+        <a href="../Bryan_Nguyen_Resume.pdf" style="padding:8px 14px;border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--text);">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Back link -->
+  <header class="wrap">
+    <a href="../index.html#projects">← Back to Home</a>
+  </header>
+
+  <main class="wrap">
+    <h1>Delta Robot Ball Balancer</h1>
+    <div class="meta">Vision-based delta robot using OpenCV tracking, inverse kinematics, and PID control.</div>
+
+    <!-- Overview -->
+    <div class="card">
+      <p style="margin:0">
+        <strong>Overview:</strong>
+        Built a ball-balancing platform actuated by a 3-servo delta robot. A camera tracks ball position in real time (OpenCV),
+        and a Python control loop computes position error, runs PID control, solves delta inverse kinematics, and sends commands
+        to an Arduino over serial to drive the servos.
+      </p>
+    </div>
+
+    <!-- Top banner / demo (placeholder for now) -->
+    <div class="card">
+      <div class="media-placeholder">
+        Add a banner photo or short demo GIF here (recommended).<br/>
+        Later: replace this placeholder with an &lt;img&gt; or YouTube embed.
+      </div>
+    </div>
+
+    <!-- Two-column section: Mechanical + Image -->
+    <div class="grid two">
+      <div class="card">
+        <h3 style="margin-top:0">Mechanical Design</h3>
+        <ul>
+          <li>3-DOF delta robot platform driven by three servo-actuated arms.</li>
+          <li>Assembly and alignment tuned to reduce backlash and improve repeatability.</li>
+          <li>Iterated tolerances and fit to improve joint smoothness and platform stability.</li>
+          <li>Designed for quick access to servos and easy reassembly during debugging.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="media-placeholder">
+          Photo/CAD render coming soon.<br/>
+          (Swap in: <code>&lt;img src="images/delta-cad.png"&gt;</code>)
+        </div>
+      </div>
+    </div>
+
+    <!-- Two-column section: Control + Demo -->
+    <div class="grid two">
+      <div class="card">
+        <h3 style="margin-top:0">Control &amp; Software</h3>
+        <ul>
+          <li><strong>Vision:</strong> OpenCV ball detection + mapping to the platform coordinate frame.</li>
+          <li><strong>Control:</strong> PID loop on X/Y position error with output limits to prevent saturation.</li>
+          <li><strong>Kinematics:</strong> Delta robot inverse kinematics to convert platform commands into joint angles.</li>
+          <li><strong>Interface:</strong> Python → Arduino serial pipeline for real-time servo control.</li>
+        </ul>
+        <p style="margin-top:10px">
+          <em>Implementation note:</em> control updates and serial writes are rate-limited to keep motion smooth and reduce oscillation.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="media-placeholder">
+          Demo video placeholder.<br/>
+          If you have a YouTube video later, replace with an embed.
+        </div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="card">
+      <h3 style="margin-top:0">Testing &amp; Results</h3>
+      <ul>
+        <li>Validated end-to-end pipeline: camera tracking → PID → IK → Arduino → servo motion.</li>
+        <li>Confirmed stable platform response to commanded tilts and step inputs.</li>
+        <li>Next: quantify metrics (control loop rate, settling time, steady-state error) once tuning is finalized.</li>
+      </ul>
+    </div>
+
+    <!-- Challenges -->
+    <div class="card">
+      <h3 style="margin-top:0">Challenges &amp; Iterations</h3>
+      <ul>
+        <li><strong>Calibration:</strong> mapping camera coordinates to platform frame required consistent lighting and camera placement.</li>
+        <li><strong>Latency:</strong> video processing + serial writes introduced delay; reduced with rate control and simplified image pipeline.</li>
+        <li><strong>Tuning:</strong> PID gains adjusted to reduce overshoot and oscillation while maintaining responsiveness.</li>
+        <li><strong>Mechanics:</strong> improved joint fit and alignment to reduce backlash that amplified control oscillations.</li>
+      </ul>
+    </div>
+
+    <!-- Next steps -->
+    <div class="card">
+      <h3 style="margin-top:0">Next Improvements</h3>
+      <ul>
+        <li>Add logged performance metrics (Hz, settling time, overshoot, steady-state error).</li>
+        <li>Improve camera calibration (homography) for more accurate ball position mapping.</li>
+        <li>Add command smoothing / filtering and safety limits for servo angles and rates.</li>
+        <li>Create a clean wiring harness and enclosure for a more robust “demo-ready” build.</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer class="wrap">
+    © <span id="y"></span> Bryan Nguyen
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
 
