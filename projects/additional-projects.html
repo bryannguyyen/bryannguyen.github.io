@@ -27,23 +27,35 @@
     @media(min-width:900px){.grid.projects{grid-template-columns:1fr 1fr}}
     .project-card{display:block;color:var(--text);text-decoration:none}
     .project-card:hover{border-color:#cbd5e1}
-   .thumb{
-  width:100%;
-  height:280px;                 /* 👈 bigger banner */
-  overflow:hidden;
-  border-radius:12px;
-  border:1px solid var(--border);
-  background:#eceff5;
-  margin-bottom:10px;
-}
 
-.thumb img{
-  width:100%;
-  height:100%;
-  object-fit:cover;             /* keep nice banner crop */
-  object-position:center center; /* adjust if needed */
-  display:block;
-}
+    .thumb{
+      width:100%;
+      height:280px;
+      overflow:hidden;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:#eceff5;
+      margin-bottom:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center center;
+      display:block;
+    }
+
+    /* ✅ Use this on tall images you want to "zoom out" */
+    .thumb img.contain{
+      object-fit:contain;
+      background:#eceff5;
+    }
 
     .project-card h3{margin:0 0 6px;font-size:1.05rem}
     .project-card p{margin:0;color:var(--muted)}
@@ -76,9 +88,8 @@
     <div class="meta">Smaller builds, design studies, and testing projects (quick highlights).</div>
 
     <p style="margin-top:4px;color:var(--muted);font-size:.9rem">
-  Technical reports available upon request.
-</p>
-
+      Technical reports available upon request.
+    </p>
 
     <div class="grid projects">
 
@@ -93,27 +104,26 @@
       <a class="card project-card" href="#">
         <div class="thumb">Image coming soon</div>
         <h3>Candy Crusher</h3>
-        <p>https://mail.google.com/mail/u/0/#inboxFinal CAD design project focused on a hand-powered candy-crushing mechanism. The system uses a gravity fed funnel to meter candies into meshing crushing teeth driven by a crank with a 2:1 gear reduction. Crushed material is guided through an internal hopper and dispensed into a collection cup. All components were designed for and fabricated using 3D printing, with an emphasis on controlled feeding, consistent crushing, and manufacturability.
-</p>
+        <p>Final CAD design project focused on a hand-powered candy-crushing mechanism. The system uses a gravity-fed funnel to meter candies into meshing crushing teeth driven by a crank with a 2:1 gear reduction. Crushed material is guided through an internal hopper and dispensed into a collection cup. All components were designed for and fabricated using 3D printing, with an emphasis on controlled feeding, consistent crushing, and manufacturability.</p>
       </a>
 
       <!-- Knife Design -->
-<a class="card project-card" href="#">
-  <div class="thumb">
-    <img
-      src="images/Knife_Design.png"
-      alt="Back-lock folding pocket knife made from MagnaCut steel"
-      loading="lazy"
-    >
-  </div>
-  <h3>Knife Design</h3>
-  <p>
-    Designed and fabricated a back-lock folding pocket knife from MagnaCut steel,
-    including custom heat treatment and plate quenching. Achieved a final hardness
-    of approximately 64 HRC, balancing edge retention and toughness for everyday carry use.
-  </p>
-</a>
-
+      <a class="card project-card" href="#">
+        <div class="thumb">
+          <img
+            src="images/Knife_Design.png"
+            alt="Back-lock folding pocket knife made from MagnaCut steel"
+            loading="lazy"
+            class="contain"
+          >
+        </div>
+        <h3>Knife Design</h3>
+        <p>
+          Designed and fabricated a back-lock folding pocket knife from MagnaCut steel,
+          including custom heat treatment and plate quenching. Achieved a final hardness
+          of approximately 64 HRC, balancing edge retention and toughness for everyday carry use.
+        </p>
+      </a>
 
       <!-- Dog Bone Testing -->
       <a class="card project-card" href="#">
