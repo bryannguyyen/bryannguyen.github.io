@@ -1,1 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Additional Projects — Bryan Nguyen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#ffffff;
+      --card:#f8f9fb;
+      --muted:#6b7280;
+      --text:#0f172a;
+      --accent:#2563eb;
+      --border:#e2e8f0;
+      --radius:18px;
+      --maxw:980px;
+    }
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:24px}
+    h1{margin:.2rem 0 .6rem;font-size:2rem}
+    .meta{color:var(--muted);margin-bottom:12px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+    .grid{display:grid;gap:14px}
+    @media(min-width:900px){.grid.projects{grid-template-columns:1fr 1fr}}
+    .project-card{display:block;color:var(--text);text-decoration:none}
+    .project-card:hover{border-color:#cbd5e1}
+    .thumb{
+      width:100%;
+      aspect-ratio:16/9;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:linear-gradient(135deg,#e6e9ef,#f3f5f9);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--muted);
+      font-weight:600;
+      margin-bottom:10px;
+    }
+    .project-card h3{margin:0 0 6px;font-size:1.05rem}
+    .project-card p{margin:0;color:var(--muted)}
+    footer{border-top:1px solid var(--border);color:var(--muted);padding:18px 0;margin-top:24px}
+  </style>
+</head>
+
+<body>
+  <!-- Sticky header (matches your other project pages) -->
+  <header style="position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:50;">
+    <div style="max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 20px;">
+      <div style="font-weight:700;letter-spacing:.3px;font-size:1.1rem;">
+        Bryan Nguyen
+      </div>
+      <nav style="display:flex;gap:18px;align-items:center;font-size:0.95rem;">
+        <a href="../index.html#about" style="text-decoration:none;color:var(--text);">About</a>
+        <a href="../index.html#projects" style="text-decoration:none;color:var(--text);">Projects</a>
+        <a href="../index.html#contact" style="text-decoration:none;color:var(--text);">Contact</a>
+        <a href="../Bryan_Nguyen_Resume.pdf" style="padding:8px 14px;border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--text);">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <header class="wrap">
+    <a href="../index.html#projects">← Back to Home</a>
+  </header>
+
+  <main class="wrap">
+    <h1>Additional Projects</h1>
+    <div class="meta">Smaller builds, design studies, and testing projects (quick highlights).</div>
+
+    <div class="grid projects">
+
+      <!-- Tiny House -->
+      <a class="card project-card" href="tiny-house.html">
+        <div class="thumb">Image coming soon</div>
+        <h3>Tiny House Energy Model</h3>
+        <p>MATLAB/Simulink simulation comparing insulation strategies and energy usage.</p>
+      </a>
+
+      <!-- Candy Crusher -->
+      <a class="card project-card" href="#">
+        <div class="thumb">Image coming soon</div>
+        <h3>Candy Crusher</h3>
+        <p>Mechanical concept design focused on load paths and manufacturability.</p>
+      </a>
+
+      <!-- Knife Design -->
+      <a class="card project-card" href="#">
+        <div class="thumb">Image coming soon</div>
+        <h3>Knife Design</h3>
+        <p>Parametric CAD model exploring ergonomics, balance, and material selection.</p>
+      </a>
+
+      <!-- Dog Bone Testing -->
+      <a class="card project-card" href="#">
+        <div class="thumb">Image coming soon</div>
+        <h3>3D Printed Dog-Bone Testing</h3>
+        <p>Tensile testing study comparing print orientation and failure modes.</p>
+      </a>
+
+    </div>
+  </main>
+
+  <footer class="wrap">
+    © <span id="y"></span> Bryan Nguyen
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
 
