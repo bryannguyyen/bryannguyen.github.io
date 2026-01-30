@@ -97,7 +97,7 @@
       <div class="card">
         <h3 style="margin-top:0">Mechanical Design</h3>
         <ul>
-          <li>3-DOF delta robot platform driven by three servo-actuated arms.</li>
+          <li>3-DOF delta robot platform driven by three servo actuated arms.</li>
           <li>Assembly and alignment tuned to reduce backlash and improve repeatability.</li>
           <li>Iterated tolerances and fit to improve joint smoothness and platform stability.</li>
           <li>Designed for quick access to servos and easy reassembly during debugging.</li>
@@ -120,10 +120,10 @@
           <li><strong>Vision:</strong> OpenCV ball detection + mapping to the platform coordinate frame.</li>
           <li><strong>Control:</strong> PID loop on X/Y position error with output limits to prevent saturation.</li>
           <li><strong>Kinematics:</strong> Delta robot inverse kinematics to convert platform commands into joint angles.</li>
-          <li><strong>Interface:</strong> Python → Arduino serial pipeline for real-time servo control.</li>
+          <li><strong>Interface:</strong> Python to Arduino serial communication for real time servo control.</li>
         </ul>
         <p style="margin-top:10px">
-          <em>Implementation note:</em> control updates and serial writes are rate-limited to keep motion smooth and reduce oscillation.
+          <em>Implementation note:</em> control updates and serial writes are rate limited to keep motion smooth and reduce oscillation.
         </p>
       </div>
 
