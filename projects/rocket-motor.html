@@ -39,15 +39,7 @@
     .meta { color:var(--muted); margin-bottom:12px; }
     .card { background:var(--card); border:1px solid var(--border);
       border-radius:var(--radius); padding:16px; margin:12px 0; }
-    img {
-  width:auto;
-  max-width:75%;
-  height:auto;
-  border-radius:12px;
-  display:block;
-  margin:0 auto;
-}
-
+    img { max-width:100%; border-radius:12px; display:block; }
     .grid { display:grid; gap:14px; }
     @media (min-width:900px){ .grid.two{ grid-template-columns:1fr 1fr; } }
     ul { margin:0 0 0 18px; }
@@ -179,19 +171,20 @@
         </p>
       </div>
     </div>
-
- <div class="card" style="text-align:center;">
+<!-- More Design & Manufacturing images -->
+<div class="grid two">
+  <!-- Nozzle image -->
+  <div class="card" style="display:flex; justify-content:center; align-items:center;">
   <img
     src="images/nozzle.jpg"
     alt="Nozzle machining / throat insert"
-    style="max-width:75%; height:auto; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.1); cursor:zoom-in; display:block; margin:auto;"
+    style="max-width:90%; height:auto; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.1); cursor:zoom-in;"
     onclick="openPopup('popup-nozzle')"
   >
-
-  <p style="font-size:14px; margin-top:10px; color:#6b7280;">
-    Nozzle cross section with converging–diverging geometry
-  </p>
 </div>
+  <p style="font-size:14px; margin-top:8px; color:#555; text-align:center;">
+  Solid rocket motor nozzle cross-section with converging–diverging geometry
+</p>
 
 
 
@@ -278,5 +271,7 @@
     function openPopup(id){ document.getElementById(id).style.display = 'flex'; }
     function closePopup(id){ document.getElementById(id).style.display = 'none'; }
   </script>
+</body>
+</html>
 </body>
 </html>
