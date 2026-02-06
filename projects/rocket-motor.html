@@ -126,18 +126,17 @@
 
       </div>
       <!-- Right column: Propellant Development photo -->
-<div class="card" style="display:flex; flex-direction:column; align-items:center;">
+<div class="card" style="text-align:center;">
   <img
     src="images/sugar-grains.png"
-    alt="Propellant grain development samples"
-    style="max-width:90%; height:auto; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.1); cursor:zoom-in;"
+    alt="Propellant grain development samples (KNSB test casts)"
+    style="width:100%; max-width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.1); cursor:zoom-in;"
     onclick="openPopup('popup-grains')"
   >
-  <p style="font-size:14px; margin-top:10px; color:#6b7280; text-align:center;">
+  <p style="font-size:14px; margin-top:8px; color:#555;">
     Propellant grain development (KNSB) test casts
   </p>
 </div>
-
 
 <!-- Popup for the grains image (place near the end of the file, just before </body>) -->
 <div id="popup-grains" class="popup-img" onclick="closePopup('popup-grains')">
@@ -160,33 +159,29 @@
       </div>
 
       <!-- Click-to-enlarge image -->
-     <div class="card" style="display:flex; flex-direction:column; align-items:center;">
-  <img
-    src="images/rocket-motor-cross-section.png"
-    alt="Rocket motor CAD cross section"
-    style="max-width:90%; height:auto; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.1); cursor:zoom-in;"
-    onclick="openPopup('popup')"
-  >
-  <p style="font-size:14px; margin-top:10px; color:#6b7280; text-align:center;">
-    Cross-section CAD of the solid rocket motor assembly
-  </p>
-</div>
-
-
+      <div class="card" style="text-align:center;">
+        <img
+          src="images/rocket-motor-cross-section.png"
+          alt="Rocket motor CAD design"
+          style="width:100%; max-width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.1); cursor:zoom-in;"
+          onclick="openPopup('popup')"
+        >
+        <p style="font-size:14px; margin-top:8px; color:#555;">
+          Cross-section CAD of the solid rocket motor assembly
+        </p>
+      </div>
+    </div>
 <!-- More Design & Manufacturing images -->
-<div class="card" style="text-align:center;">
+<div class="grid two">
+  <!-- Nozzle image -->
+  <div class="card" style="display:flex; justify-content:center; align-items:center;">
   <img
     src="images/nozzle.jpg"
-    alt="Rocket nozzle cross section"
-    style="max-width:80%; height:auto; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.1); cursor:zoom-in; margin:auto; display:block;"
+    alt="Nozzle machining / throat insert"
+    style="max-width:90%; height:auto; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.1); cursor:zoom-in;"
     onclick="openPopup('popup-nozzle')"
   >
-
-  <p style="margin-top:12px; font-size:14px; color:#6b7280;">
-    CNC-machined stainless steel nozzle with throat insert and converging–diverging profile
-  </p>
 </div>
-
 
 
   <!-- Full assembly / test stand image -->
